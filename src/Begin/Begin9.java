@@ -1,3 +1,5 @@
+package Begin;
+
 import java.util.Scanner;
 public class Begin9 {
     public static void main(String[] args) {
