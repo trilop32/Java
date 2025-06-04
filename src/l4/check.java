@@ -7,7 +7,7 @@ String getValidLogin(Scanner sc) {
         try {
             validateLogin(login);
             valid = true;
-        } catch (LoginEx e) {
+        } catch (WrongLoginException e) {
             System.err.println("Ошибка: " + e.getMessage());
             System.out.println("Попробуйте еще раз.");
         }
@@ -27,7 +27,7 @@ String[] getValidPassword(Scanner sc) {
         try {
             validatePassword(password, confirmPassword);
             valid = true;
-        } catch (PasswordEx e) {
+        } catch (WrongPasswordException  e) {
             System.err.println("Ошибка: " + e.getMessage());
             System.out.println("Попробуйте еще раз.");
         }
@@ -36,22 +36,22 @@ String[] getValidPassword(Scanner sc) {
     passwords[1] = confirmPassword;
     return passwords;
 }
-void validateLogin(String login) throws LoginEx {
+void validateLogin(String login) throws WrongLoginException {
     if (login == null || login.length() < 5) {
-        throw new LoginEx("Логин должен содержать не менее 5 символов.");
+        throw new WrongLoginException("Логин должен содержать не менее 5 символов.");
     }
     if (!login.matches("[a-zA-Z0-9_]+")) {
-        throw new LoginEx("Логин должен содержать только латинские буквы, цифры и знак подчеркивания.");
+        throw new WrongLoginException("Логин должен содержать только латинские буквы, цифры и знак подчеркивания.");
     }
 }
-void validatePassword(String password, String confirmPassword) throws PasswordEx {
-    if (password == null || password.length() < 8) {throw new PasswordEx("Пароль должен содержать не менее 8 символов.");
+void validatePassword(String password, String confirmPassword) throws WrongPasswordException  {
+    if (password == null || password.length() < 8) {throw new WrongPasswordException ("Пароль должен содержать не менее 8 символов.");
     }
     if (!password.equals(confirmPassword)) {
-        throw new PasswordEx("Пароль и подтверждение пароля не совпадают.");
+        throw new WrongPasswordException ("Пароль и подтверждение пароля не совпадают.");
     }
     if (!isValidPassword(password)) {
-        throw new PasswordEx("Пароль должен содержать как минимум 3 из 4 групп символов: латинские буквы (большие и маленькие), цифры и знак подчеркивания.");
+        throw new WrongPasswordException ("Пароль должен содержать как минимум 3 из 4 групп символов: латинские буквы (большие и маленькие), цифры и знак подчеркивания.");
     }
 }
 boolean isValidPassword(String password) {
@@ -77,13 +77,13 @@ boolean isValidPassword(String password) {
     if (hasUnderscore) count++;
     return count >= 3;
 }
-static class LoginEx extends Exception {
-    public LoginEx(String message) {
+static class WrongLoginException extends Exception {
+    public WrongLoginException(String message) {
         super(message);
     }
 }
-static class PasswordEx extends Exception {
-    public PasswordEx(String message) {
+static class WrongPasswordException  extends Exception {
+    public WrongPasswordException (String message) {
         super(message);
     }
 }
