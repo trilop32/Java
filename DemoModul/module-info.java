@@ -1,0 +1,3 @@
+module DemoM {
+    requires Operation;
+}
