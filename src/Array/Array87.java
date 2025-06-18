@@ -9,6 +9,7 @@ public class Array87 {
             System.out.println("Размер массива должен быть больше 0.");
             return;
         }
+
         int[] arr = new int[arraySize];
         System.out.println("Введите элементы массива (кроме первого, остальные по возрастанию):");
         System.out.println("Первый элемент: ");
