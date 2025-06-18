@@ -1,3 +1,10 @@
+import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+import static java.io.IO.print;
+import static java.io.IO.println;
 void main() {
     SecureRandom r = new SecureRandom();
     Scanner sc = new Scanner(System.in);
@@ -13,5 +20,5 @@ void main() {
     System.out.println();
     System.out.print("After Arrays.sort: ");
     Arrays.sort(m, Collections.reverseOrder());
-    println(Arrays.toString());
+//    println(Arrays.toString());
 }
