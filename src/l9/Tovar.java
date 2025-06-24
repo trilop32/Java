@@ -6,7 +6,7 @@ class Product<T, U extends Number> {
         this.sku = sku;
         this.price = price;
     }
-    public T getSku() {
+    public T getArt() {
         return sku;
     }
     public void setSku(T sku) {
@@ -18,7 +18,6 @@ class Product<T, U extends Number> {
     public void setPrice(U price) {
         this.price = price;
     }
-    @Override
     public String toString() {
         return "Product{" +
                 "sku=" + sku +
@@ -34,9 +33,9 @@ public class Tovar {
         System.out.println("Product 2: " + product2);
         Product<String, Double> product3 = new Product<>("ITEM789", 99.99);
         System.out.println("Product 3: " + product3);
-        String skuProduct1 = product1.getSku();
+        String article1 = product1.getArt();
         Integer priceProduct1 = product1.getPrice();
-        System.out.println("SKU of Product 1: " + skuProduct1);
+        System.out.println("SKU of Product 1: " + article1);
         System.out.println("Price of Product 1: " + priceProduct1);
     }
 }
