@@ -2,7 +2,6 @@ package l6;
 
 import java.security.SecureRandom;
 
-import static java.io.IO.println;
 
 public class RandomTicket {
     public void main() {
@@ -14,7 +13,7 @@ public class RandomTicket {
         for(int i = 1; i < Students; i++) {
             q1 = r.nextInt(Questions)+ 65;
             q2 = r.nextInt(Questions)+ 65;
-            println(i+") " + q1 + ", " + q2);
+            System.out.println(i+") " + q1 + ", " + q2);
         }
     }
 }
